@@ -2,8 +2,10 @@ import React from 'react'
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Instagram } from 'lucide-react';
+import { cookies } from 'next/headers';
 
 const Header = () => {
+  const session = cookies().get('session')
   return (
    <header className="border-b border-red-900/30 bg-black/90 backdrop-blur-sm fixed w-full z-50">
    <div className="container mx-auto flex items-center justify-between py-4 px-4">
@@ -48,7 +50,7 @@ const Header = () => {
          variant="outline"
          className="hidden md:flex border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
        >
-         ورود
+         {session ? 'داشبورد' : 'ورود'}
        </Button>
        <Button className="md:hidden" variant="ghost" size="icon">
          <svg
