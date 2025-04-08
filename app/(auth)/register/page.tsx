@@ -60,7 +60,7 @@ const Page = () => {
       const { token } = await response.json();
 
       const expirationDate = new Date();
-      expirationDate.setDate(expirationDate.getDate() + 40);
+      expirationDate.setDate(expirationDate.getDate() + 120);
       document.cookie = `session=${token}; path=/; Secure; SameSite=Strict; Expires=${expirationDate.toUTCString()};`;
 
       router.replace("/?subscription=success");
